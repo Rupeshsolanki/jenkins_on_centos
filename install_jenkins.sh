@@ -2,13 +2,13 @@
 
 echo "Installing Dependencies for Jenkins"
 
-sudo dnf -y install java-1.8.0-openjdk-devel wget firewalld
+sudo yum -y install java-1.8.0-openjdk-devel wget firewalld python3
 
 echo "Add Jenkins Software Repository"
 
 sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
 sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
-sudo dnf update -y
+sudo yum update -y
 
 echo "Starting Firewall Service"
 
@@ -20,7 +20,7 @@ echo "Install Jenkins on CentOS 8"
 echo "Copy User file"
 cp users.groovy /usr/share/jenkins/ref/init.groovy.d/
 
-sudo dnf -y install jenkins
+sudo yum -y install jenkins
 
 echo "Start Jenkins Service"
 
