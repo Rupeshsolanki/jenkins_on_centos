@@ -35,3 +35,7 @@ sudo firewall-cmd --permanent --zone=public --add-port=8080/tcp
 sudo firewall-cmd --reload
 
 echo "Run and Set up Jenkins on http://your_domain:8080"
+
+echo "Your user name is admin and password is displayed below"
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+
