@@ -27,6 +27,9 @@ echo "Start Jenkins Service"
 ENV JAVA_OPTS -Djenkins.install.runSetupWizard=false
 sudo systemctl start jenkins
 sudo systemctl enable jenkins
+sudo sed -i 's#<installStateName>NEW.*#<installStateName>RUNNING<\/installStateName>#g' /var/lib/jenkins/config.xml
+sudo service jenkins restart
+
 
 echo "Set Firewall to Allow Jenkins"
 
