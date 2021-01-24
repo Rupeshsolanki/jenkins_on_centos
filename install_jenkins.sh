@@ -18,7 +18,7 @@ sudo systemctl enable firewalld
 echo "Install Jenkins on CentOS 8"
 
 echo "Copy User file"
-COPY default-user.groovy /usr/share/jenkins/ref/init.groovy.d/
+cp users.groovy /usr/share/jenkins/ref/init.groovy.d/
 
 sudo dnf -y install jenkins
 
