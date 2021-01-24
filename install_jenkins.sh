@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo "Installing Dependencies for Jenkins"
 
 sudo dnf -y install java-1.8.0-openjdk-devel wget firewalld
@@ -15,10 +17,14 @@ sudo systemctl enable firewalld
 
 echo "Install Jenkins on CentOS 8"
 
+echo "Copy User file"
+COPY default-user.groovy /usr/share/jenkins/ref/init.groovy.d/
+
 sudo dnf -y install jenkins
 
 echo "Start Jenkins Service"
 
+ENV JAVA_OPTS -Djenkins.install.runSetupWizard=false
 sudo systemctl start jenkins
 sudo systemctl enable jenkins
 
